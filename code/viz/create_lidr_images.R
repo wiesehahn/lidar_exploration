@@ -111,7 +111,7 @@ ggplot(data_transect_4@data, aes(x=X, y=Z, color = NumberOfReturns)) + geom_poin
 ggsave(here("results/figures", "numberofreturns_sideview.png"), width= 1280, height= 360, units = "px")
 
 ggplot(data_transect_4@data, aes(x=X, y=Z, color = factor(PointSourceID))) + geom_point(size = 0.5) + coord_equal() + theme_void() + scale_color_viridis_d(option = "plasma") + theme(legend.position = "none")
-ggsave(here("results/figures", "pointsourceid _sideview.png"), width= 1280, height= 360, units = "px")
+ggsave(here("results/figures", "pointsourceid_sideview.png"), width= 1280, height= 360, units = "px")
 
 
 #### DTM (DGM)
@@ -119,7 +119,7 @@ ggsave(here("results/figures", "pointsourceid _sideview.png"), width= 1280, heig
 # plot pre-classified ground
 gnd <- filter_ground(data_transect_4)
 ggplot(gnd@data, aes(X,Z)) + geom_point(size = 0.5) + coord_equal() + theme_void()
-ggsave(here("results/figures", "ground-preclassified _sideview.png"), width= 1280, height= 360, units = "px")
+ggsave(here("results/figures", "ground-preclassified_sideview.png"), width= 1280, height= 360, units = "px")
 
 
 # classify ground points (progressive morphological filter)
@@ -129,7 +129,7 @@ data_transect_4 <- classify_ground(data_transect_4, algorithm = pmf(ws = ws, th 
 
 gnd <- filter_ground(data_transect_4)
 ggplot(gnd@data, aes(X,Z)) + geom_point(size = 0.5) + coord_equal() + theme_void()
-ggsave(here("results/figures", "ground-pmf _sideview.png"), width= 1280, height= 360, units = "px")
+ggsave(here("results/figures", "ground-pmf_sideview.png"), width= 1280, height= 360, units = "px")
 
 # classify ground points (Cloth Simulation Filter)
 data_transect_4 <- classify_ground(data_transect_4, algorithm = csf())
