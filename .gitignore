@@ -38,6 +38,9 @@
 *.dbf
 *.prj
 
+*.las
+*.laz
+
 # QGIS
 *.qgz 
 #(.qgs files can be tracked, better to use the Trackable QGIS Project plugin)
