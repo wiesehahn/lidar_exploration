@@ -1,2 +1,49 @@
-/.Rhistory
-/.Rproj.user
+# R
+## History files
+.Rhistory
+.Rapp.history
+
+## Session Data files
+.RData
+
+## User-specific files
+.Ruserdata
+
+## RStudio files
+.Rproj.user/
+
+## R Environment Variables
+.Renviron
+
+
+# Python 
+
+## JupyterNotebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+
+# Visual Stusio Code
+/.vscode
+
+# geodata
+*.gpkg
+*.gpkg-shm
+*.gpkg-wal
+*.tif
+*.xml
+
+*.shp
+*.shx
+*.dbf
+*.prj
+
+# QGIS
+*.qgz 
+#(.qgs files can be tracked, better to use the Trackable QGIS Project plugin)
+*.vrt
+
+# other binaries
+*.zip
+*.docx
+*.pdf
