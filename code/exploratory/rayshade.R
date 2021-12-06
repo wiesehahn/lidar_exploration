@@ -56,7 +56,9 @@ plot_raster <- function(ras){
 ##___________________________________________________
 
 #### load data
-tile <- "566000_5709000"
+tile <- "566000_5737000" #Vogelbeck
+# "608000_5734000" # königskrug
+# "566000_5709000" # schillerwiesen
 LASfile <- paste0("K:/aktiver_datenbestand/ni/lverm/las/stand_2021_0923/daten/3D_Punktwolke_Teil2/lasfilez_", tile, "_laz.laz")
 
 las <-  readLAS(LASfile)
@@ -74,10 +76,16 @@ dsm <- grid_canopy(las, res = 0.5, algorithm = dsmtin())
 nlas <- normalize_height(las, dtm)
 ndsm <- grid_canopy(nlas, res = 0.5, algorithm = dsmtin())
 
+
+noground <- filter_poi(las,
+                       Classification != 2 & Z > 0.1 &
+                       ReturnNumber == 1L)#NumberOfReturns)
+plot(noground, color = "Intensity", colorPalette = viridis::plasma(50))
+
 # # plot
-# plot_raster(dtm)
-# plot_raster(dsm)
-# plot_raster(ndsm)
+ plot_raster(dtm)
+ plot_raster(dsm)
+ plot_raster(ndsm)
 
 # # save
 # raster::writeRaster(dtm, here(paste0("data/interim/", tile, "_dtm.tif")), format="GTiff")

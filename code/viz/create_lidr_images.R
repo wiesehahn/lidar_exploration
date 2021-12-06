@@ -68,6 +68,8 @@ las = clip_rectangle(ctg, 590000, 5727000, 590500, 5727500)
 # projections seems not to be read from xml, set manually
 projection(las) <- 25832
 
+las <- filter_poi(las, Classification != 7 & # noise
+                    Classification != 15) # other points (mainly cars)
 
 # # basic data checking
 # print(las)
@@ -112,6 +114,9 @@ ggsave(here("results/figures", "numberofreturns_sideview.png"), width= 1280, hei
 
 ggplot(data_transect_4@data, aes(x=X, y=Z, color = factor(PointSourceID))) + geom_point(size = 0.5) + coord_equal() + theme_void() + scale_color_viridis_d(option = "plasma") + theme(legend.position = "none")
 ggsave(here("results/figures", "pointsourceid_sideview.png"), width= 1280, height= 360, units = "px")
+
+ggplot(data_transect_4@data, aes(x=X, y=Z), color = "black") + geom_point(size = 0.5) + coord_equal() + theme_void() + scale_color_viridis_d(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "pointcloud_sideview.png"), width= 1280, height= 360, units = "px")
 
 
 #### DTM (DGM)
@@ -246,6 +251,12 @@ ggplot() +
   theme_void()
 ggsave(here("results/figures", "treeheight_ws-adaptive_sideview.png"), width= 1280, height= 360, units = "px")
 
+ggplot() + 
+  geom_point(data= nlas@data, aes(x= X,y = Z), size = 0.1, color = "grey")  + 
+  geom_point(data= ttops_df, aes(x= x, y= z), size = 1.5, color= "black") + 
+  coord_equal() + 
+  theme_void()
+ggsave(here("results/figures", "treeheight_ws-adapt_sideview.png"), width= 1280, height= 360, units = "px")
 
 
 #### tree segmentation
@@ -271,7 +282,7 @@ algo <- dalponte2016(ndsm, ttops, max_cr = 10, th_seed = 0.5, th_tree = 2)
 treecloud <- segment_trees(nlas, algo, attribute = "IDdalponte") 
 
 ggplot() + 
-  geom_point(data= treecloud@data, aes(x= X,y = Z, color = IDdalponte), size = 0.1)  +  
+  geom_point(data= treecloud@data, aes(x= X,y = Z, color = factor(IDdalponte)), size = 0.1)  +  
   geom_point(data= ttops_df, aes(x= x, y= z), size = 2, color= "red") +
   coord_equal() + 
   theme_void()  +
@@ -284,7 +295,7 @@ treecloud <- segment_trees(nlas, algo, attribute = "IDli")
 
 ggplot() + 
   geom_point(data= treecloud@data, aes(x= X,y = Z, color = factor(IDli)), size = 0.1)  +  
-  geom_point(data= ttops_df, aes(x= x, y= z), size = 2, color= "red") +
+  scale_color_manual(values=c(rep(c(viridis::plasma(5, end = 0.8)),21))) +
   coord_equal() + 
   theme_void()  +
   theme(legend.position = "none")
@@ -293,11 +304,11 @@ ggsave(here("results/figures", "treesegmentation_li_sideview.png"), width= 1280,
 
 # single tree
 tree <- filter_poi(treecloud, IDli == 2)
-plot(tree, size = 2, color = "Intensity", colorPalette = viridis::plasma(5), bg = "white")
-rgl::snapshot3d(here("results/figures", "single-tree.png"), width= 360, height= 720)
+plot(tree, size = 3, color = "Intensity", colorPalette = viridis::plasma(100) , trim = 150, bg = "white")
+rgl::snapshot3d(here("results/figures", "single-tree_new.png"), width= 360, height= 720)
 
 
-
+treecloud@data[Z=max(Z)]
 
 #### Crown delineation
 
@@ -341,6 +352,19 @@ ggplot() +
 ggsave(here("results/figures", "ndsm_crown-delineation.png"), width= 1280, height= 360, units = "px")
 
 
+# multispectral data fusion
 
+dtm <- grid_terrain(data_transect_100, res = 1, algorithm = knnidw(k = 10L, p = 2))
+nlas <- normalize_height(data_transect_100, dtm)
 
+img <- raster::stack("X:/ni/lverm/orthos_landesweit_stand_2018_0604/daten/dop20_590000_5726000_col.tif")
+
+projection(img) <- 25832
+
+nlas_rgb <- merge_spatial(nlas, img)
+plot(nlas_rgb, color = "RGB", size = 1,bg = "white")
+
+# plot pointcloud
+plot(nlas_rgb, bg = "white", color = "RGB", nbits = 8, size = 1)
+rgl::snapshot3d(here("results/figures", "pointcloud_rgb.png"), width= 1280, height= 360)
 
