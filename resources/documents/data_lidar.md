@@ -17,8 +17,11 @@ Das Attribut `Stand` gibt das Datum der Metadatengenerierung an. Das Datum der B
 **Aktuellste Aufnahme**
 Die ALS-Daten für Niedersachsen kommen aus den Jahren 2013 bis 2020. In den Jahren wurden jeweils einzelene Teilgebiete beflogen, so dass die Daten innerhalb bestimmter zusammenhängender Gebiete aus demselben Jahr stammen aber die Datenaktualität sich zwischen den Gebieten unterscheidet. 
 
-Hier ist eine Übersicht welches Gebiet in welchem Jahr beflogen wurde. Die aktuelle Version lässt sich [hier](https://www.lgnapp.niedersachsen.de/info_pdf/dgm1_dom1.pdf) abrufen.
-<img src=../../resources/figures/dgm_dom_aktualit%C3%A4t.png width="720">
+Hier ist eine Übersicht welches Gebiet in welchem Jahr beflogen wurde. Die aktuelle Version des LGLN lässt sich [hier](https://www.lgnapp.niedersachsen.de/info_pdf/dgm1_dom1.pdf) abrufen.
+<img src=../../results/figures/data_year.png width="720">
+
+Auch innerhalb der Jahre stammen die Daten aus verschiedenen Befliegungen, das genaue Datum lässt sich nicht ohne weiteres auslesen, aber der Aufnahmemonat ist angegeben.
+<img src=../../results/figures/data_month.png width="720">
 
 **Wiederholungsaufnahmen**
 Bisher wurden keine flächendeckenden Wiederholungs-Befliegungen in regelmäßigen Abständen durchgeführt. Jetzt wird allerdings angefangen Gebiete welche zuletzt vor 8-10 Jahren erfasst wurden erneut zu befliegen. In kleinen Teilbereichen ist dies bereits 2020 geschehen.
