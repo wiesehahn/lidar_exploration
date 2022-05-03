@@ -1,6 +1,6 @@
-## `enhanced-mapping`
+## `exploration of lidar data and lidR package`
 
-This folder contains material related to workpackage 6.3.2 (ebhabdec forest disturbance mapping).
+This folder contains material to test and explore processing capabilities of the [lidR](https://github.com/r-lidar/lidR) package and use cases for forestry. Especially aerial laser scanning data (ALS) from Lower Saxony is tested. 
 
 --------
 
