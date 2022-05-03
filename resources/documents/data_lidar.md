@@ -49,7 +49,7 @@ Anzahl der für einen Laserimpuls reflektierten Teilimpulse über einem bestimmt
 #### ReturnNumber
 Nummerierung der reflektierten Teilimpulse. Für einige Auswertungen werden beispielsweise nur die ersten (Oberhöhe) oder letzten (Gelände) Impulse ausgewertet.
 
-<img src=results/figures/returnnumber_sideview.png width="720">
+<img src=../../results/figures/returnnumber_sideview.png width="720">
 
 #### Classification
 Die Daten liegen als klassifizierte Punktwolke mit den Klassen Bodenpunkte (2), Gewässerpunkte(8,11), Unterbodenpunkte (z. B. Ein-/Auffahrten, Kellerschüsse und Schwimmbecken)(12), Nicht-Bodenpunkte (z. B. Gebäude, Vegetation und temporäre Aufschüttungen)(13) und sonstige Punkte (DGM- noch DOM-irrelevante Punkte wie z. B. Stromleitungen, Verkehrsmittel, Container und Vögel) vor (15). Daneben gibt es noch Ausreißer (Fehlreflexionen, Rauschen)(7) sowie Überlappungspunkte (20).
@@ -91,7 +91,6 @@ Ausgehend von den Baumpositionen, welche bereits bei der Baumhöhenableitung det
 Aus der segmentierten Punktwolke lassen sich Parameter auf Einzelbaumebene berechnen. So ließe sich beispielsweise die Baumkronenbreite, die Kronenansatzhöhe oder das Kronenvolumen schätzen. Auch abstraktere Werte z.B. zur vertikalen Punktverteilung lassen sich ableiten. 
 <br clear="right"/>
 
-![](../../results/figures/single-tree.png)
 
 ## Quellen
 
