@@ -368,3 +368,317 @@ plot(nlas_rgb, color = "RGB", size = 1,bg = "white")
 plot(nlas_rgb, bg = "white", color = "RGB", nbits = 8, size = 1)
 rgl::snapshot3d(here("results/figures", "pointcloud_rgb.png"), width= 1280, height= 360)
 
+
+# calculate standard metrics
+metrics<- pixel_metrics(data_transect_100, res= 1, func = .stdmetrics)
+
+metricsdf <- as.data.frame(metrics, xy = TRUE) %>%
+  na.omit()
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zmax)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zmax.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zmean)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zmean.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zsd)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zsd.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zskew)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zskew.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zkurt)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zkurt.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zentropy)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zentropy.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = pzabovezmean)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_pzabovezmean.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = pzabove2)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_pzabove2.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq5)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq5.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq10)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq10.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq15)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq15.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq20)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq20.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq25)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq25.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq30)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq30.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq35)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq35.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq40)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq40.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq45)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq45.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq50)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq50.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq55)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq55.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq60)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq60.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq65)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq65.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq70)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq70.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq75)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq75.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq80)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq80.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq85)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq85.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq90)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq90.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zq95)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zq95.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zpcum1)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zpcum1.png"), width= 1280, height= 360, units = "px")
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zpcum2)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zpcum2.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zpcum3)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zpcum3.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zpcum4)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zpcum4.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zpcum5)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zpcum5.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zpcum6)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zpcum6.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zpcum7)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zpcum7.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zpcum8)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zpcum8.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = zpcum9)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_zpcum9.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = itot)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_itot.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = imax)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_imax.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = imean)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_imean.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = isd)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_isd.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = iskew)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_iskew.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = ikurt)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_ikurt.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = ipground)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_ipground.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = ipcumzq10)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_ipcumzq10.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = ipcumzq30)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_ipcumzq30.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = ipcumzq50)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_ipcumzq50.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = ipcumzq70)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_ipcumzq70.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = ipcumzq90)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_ipcumzq90.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = p1th)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_p1th.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = p2th)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_p2th.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = p3th)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_p3th.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = p4th)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_p4th.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = p5th)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_p5th.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = pground)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_pground.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = n)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_n.png"), width= 1280, height= 360, units = "px")
+
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = area)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_area.png"), width= 1280, height= 360, units = "px")
+
