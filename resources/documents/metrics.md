@@ -1,6 +1,6 @@
-# Metriken
+# Standard Metrics
 
-Neben DGM und DOM lassen sich unendlich viele weiter Metriken aus den Laserdaten berechnen. Hier sind die von LidR standardmäßig berechneten Metriken gelistet:
+Neben DGM und DOM lassen sich unendlich viele weiter Metriken aus den Laserdaten berechnen. Hier ist eine Auswahl der von LidR standardmäßig berechneten Metriken gelistet (mehr Infos [hier](https://github.com/r-lidar/lidR/wiki/stdmetrics)):
 
 ## Height based
 ### zmax
@@ -50,3 +50,9 @@ Neben DGM und DOM lassen sich unendlich viele weiter Metriken aus den Laserdaten
 
 ### ipground
 <img src=../../results/figures/metrics_ipground.png width="720">
+
+
+# Own metrics
+
+## imeanupper25
+<img src=../../results/figures/metrics_imeanupper25.png width="720">

@@ -682,3 +682,27 @@ ggplot() +
   theme_void()+ coord_fixed() + scale_fill_viridis_c(option = "plasma") + theme(legend.position = "none")
 ggsave(here("results/figures", "metrics_area.png"), width= 1280, height= 360, units = "px")
 
+
+
+# calculate own metrics
+myMetrics<-function(i, z){
+  
+  q75=quantile(z,probs=c(0.75))         
+  aboveq75= z>q75
+  zq75 = i[aboveq75]
+  
+  imeanq75=mean(zq75, na.rm=TRUE)
+  
+  return(imeanq75)}
+
+nlas <- normalize_height(data_transect_100, tin())
+noground <- filter_poi(nlas, Classification != 2, Z >0.5)
+m <- pixel_metrics(noground, ~myMetrics(Intensity, Z), res = 1)
+
+metricsdf <- as.data.frame(m, xy = TRUE) %>%
+  na.omit()
+
+ggplot() +
+  geom_raster(data = metricsdf, aes(x = x, y = y, fill = V1)) +
+  theme_void()+ coord_fixed() + scale_fill_viridis_c(limits = c(0, 100),option = "plasma") + theme(legend.position = "none")
+ggsave(here("results/figures", "metrics_imeanupper25.png"), width= 1280, height= 360, units = "px")
