@@ -61,7 +61,7 @@ Die Daten liegen als klassifizierte Punktwolke mit den Klassen *Bodenpunkte* (2)
 
 Bei neueren Daten (ab 2021) ändert sich die Wertezuordnung (z.B. *sonstige Punkte* von 15 zu 1). Eine Übersicht dazu lässt sich [hier](https://www.lgln.niedersachsen.de/download/129180/Produkt-_und_Formatbeschreibung_Laserscan-Punktwolke.pdf) abrufen.
 
-Leider scheint die Klassifizierung weiter nicht auf internationalen Standards zu basieren (https://www.ogc.org/standards/LAS), wodurch die Nutzung in Tools wie beispielsweise QGIS erschwert wird.
+Leider scheint die Klassifizierung weiter nicht auf internationalen Standards zu basieren (https://www.ogc.org/standards/LAS), wodurch die Nutzung in Tools wie beispielsweise QGIS erschwert wird. Der aktuelle LAS Standard wird [hier](https://github.com/ASPRSorg/LAS) beschrieben.
 
 
 <img src=../../results/figures/classification_sideview.png width="720">
