@@ -6,10 +6,10 @@
 
 ### Datenverfügbarkeit
 
-Für Niedersachsen werden die Daten vom Landesamt für Geoinformation und Landesvermessung Niedersachsen (LGLN) bereitgestellt. 
+Für Niedersachsen werden die Daten vom Landesamt für Geoinformation und Landesvermessung Niedersachsen (www.lgln.de) bereitgestellt. 
 
 #### Räumlich
-Aus den ALS-Daten abgeleitete Produkte wie ein Oberflächen- und Geländemodell liegen für ganz Niedersachsen und auch einen Teil der anderen Trägerländer vor. Die Punktwolke als LAS/LAZ Dateien liegt der NW-FVA aktuell für den niedersächsischen Bereich des Harzes vor. 
+Aus den ALS-Daten abgeleitete Produkte wie ein Oberflächen- und Geländemodell sowie die Punktwolke als LAS/LAZ Dateien liegen für ganz Niedersachsen vor.
 
 #### Zeitlich
 Das Attribut `Stand` gibt das Datum der Metadatengenerierung an. Das Datum der Befliegung ist unter dem Attribut `Ersterfassung` in den Metadaten gelistet.   
@@ -17,16 +17,16 @@ Das Attribut `Stand` gibt das Datum der Metadatengenerierung an. Das Datum der B
 **Aktuellste Aufnahme**
 Die ALS-Daten für Niedersachsen kommen aus den Jahren 2013 bis 2020. In den Jahren wurden jeweils einzelene Teilgebiete beflogen, so dass die Daten innerhalb bestimmter zusammenhängender Gebiete aus demselben Jahr stammen aber die Datenaktualität sich zwischen den Gebieten unterscheidet. 
 
-Hier ist eine Übersicht welches Gebiet in welchem Jahr beflogen wurde. Die aktuelle Version des LGLN lässt sich [hier](https://www.lgnapp.niedersachsen.de/info_pdf/dgm1_dom1.pdf) abrufen.
+Hier ist eine Übersicht welches Gebiet in welchem Jahr beflogen wurde. Die aktuelle Version des LGLN lässt sich [hier](https://cms.lgln.niedersachsen.de/fb24/dgm1_dom1.pdf) abrufen.
 
 <img src=../../results/figures/data_year.png width="720">
 
-Auch innerhalb der Jahre stammen die Daten aus verschiedenen Befliegungen, das genaue Datum lässt sich nicht ohne weiteres auslesen, aber der Aufnahmemonat ist angegeben.
+Auch innerhalb der Jahre stammen die Daten aus verschiedenen Befliegungen, das genaue Datum lässt sich nicht ohne Weiteres auslesen, aber der Aufnahmemonat ist angegeben.
 
 <img src=../../results/figures/data_month.png width="720">
 
 **Wiederholungsaufnahmen**
-Bisher wurden keine flächendeckenden Wiederholungs-Befliegungen in regelmäßigen Abständen durchgeführt. Jetzt wird allerdings angefangen Gebiete welche zuletzt vor 8-10 Jahren erfasst wurden erneut zu befliegen. In kleinen Teilbereichen ist dies bereits 2020 geschehen.
+Bisher wurden keine flächendeckenden Wiederholungs-Befliegungen in regelmäßigen Abständen durchgeführt. Einzelne Gebiete welche zuletzt vor 8-10 Jahren erfasst wurden, wurden allerdings bereits erneut beflogen. 
 
 ### Parameter
 
@@ -36,12 +36,12 @@ Die Lagekoordinaten der Punkte im Raum werden als XYZ Koordinaten erfasst, relat
 <img src=../../results/figures/pointcloud.png width="720">
 
 #### gpstime
-Aufgenommen wird auch die Zeit der Messung, diese ist angegeben in der GPS-time. Zusammen mit dem Aufnahmedatum kann die Aufnahmezeit daraus errechnet werden.
+Aufgenommen wird auch die Zeit der Messung, diese ist angegeben in der GPS-time. Bisherige Versuche diese sinnvoll zu decodieren sind allerdings fehlgeschlagen. Dabei kamen entweder unsinnige Daten oder teilweise möglicherweise das Prozessierungsdatum heraus.   
 
 <img src=../../results/figures/gpstime_sideview.png width="720">
 
 #### Intensity
-Die Intensität ist eine Maßeinheit, welche die Reflexionsstärke des Laserpulses für jeden Punkt beschreibt. Sie basiert teilweise auf dem Reflexionsgrad des vom Laserpuls getroffenen Objekts. Intensität ist relativ und nicht quantifizierbar. 
+Die Intensität ist eine Maßeinheit, welche die Reflexionsstärke des Laserpulses für jeden Punkt beschreibt. Sie basiert teilweise auf dem Reflexionsgrad des vom Laserpuls getroffenen Objekts. Intensität ist relativ und nicht quantifizierbar. Innerhalb der Daten einer Befliegung ist die Intensität ainigermaßen konsistent, zwischen unterschiedlichen Befliegungen unterscheiden sich die Wertebereiche aber teilweise.
 
 
 <img src=../../results/figures/intensity_sideview.png width="720">
@@ -57,7 +57,12 @@ Nummerierung der reflektierten Teilimpulse. Für einige Auswertungen werden beis
 <img src=../../results/figures/returnnumber_sideview.png width="720">
 
 #### Classification
-Die Daten liegen als klassifizierte Punktwolke mit den Klassen Bodenpunkte (2), Gewässerpunkte(8,11), Unterbodenpunkte (z. B. Ein-/Auffahrten, Kellerschüsse und Schwimmbecken)(12), Nicht-Bodenpunkte (z. B. Gebäude, Vegetation und temporäre Aufschüttungen)(13) und sonstige Punkte (DGM- noch DOM-irrelevante Punkte wie z. B. Stromleitungen, Verkehrsmittel, Container und Vögel) vor (15). Daneben gibt es noch Ausreißer (Fehlreflexionen, Rauschen)(7) sowie Überlappungspunkte (20).
+Die Daten liegen als klassifizierte Punktwolke mit den Klassen *Bodenpunkte* (2), *Gewässerpunkte*(8,11), *Unterbodenpunkte* (z. B. Ein-/Auffahrten, Kellerschüsse und Schwimmbecken)(12), *Nicht-Bodenpunkte* (z. B. Gebäude, Vegetation und temporäre Aufschüttungen)(13) und *sonstige Punkte* (DGM- noch DOM-irrelevante Punkte wie z. B. Stromleitungen, Verkehrsmittel, Container und Vögel) vor (15). Daneben gibt es noch *Ausreißer* (Fehlreflexionen, Rauschen)(7) sowie *Überlappungspunkte* (20). 
+
+Bei neueren Daten (ab 2021) ändert sich die Wertezuordnung (z.B. *sonstige Punkte* von 15 zu 1). Eine Übersicht dazu lässt sich [hier](https://www.lgln.niedersachsen.de/download/129180/Produkt-_und_Formatbeschreibung_Laserscan-Punktwolke.pdf) abrufen.
+
+Leider scheint die Klassifizierung weiter nicht auf internationalen Standards zu basieren (https://www.ogc.org/standards/LAS), wodurch die Nutzung in Tools wie beispielsweise QGIS erschwert wird.
+
 
 <img src=../../results/figures/classification_sideview.png width="720">
 
