@@ -49,7 +49,9 @@ library(sf)
 ##___________________________________________________
 
 # load catalog 
-load(here("data/interim/lidr-catalog.RData"))
+load(here("data/interim/lidr-catalog-new.RData"))
+# also possible with prior catalog
+#load(here("data/interim/lidr-catalog.RData"))
 
 mapview::mapview(ctg@data, zcol= "Data.Year")
 mapview::mapview(ctg@data, zcol= "Data.Month")
@@ -59,11 +61,11 @@ ggplot2::ggplot(ctg@data) +
   geom_sf(aes(fill = as.factor(Data.Year)), colour = NA) +
   viridis::scale_fill_viridis(option="magma", discrete=TRUE, name = "Year") + theme_void()
 
-ggsave(here("results/figures", "data_year.png"), width= 1280, units = "px")
+ggsave(here("results/figures", "data_year.png"), width= 1280, height = 1062, units = "px")
 
 
 ggplot2::ggplot(ctg@data) +
   geom_sf(aes(fill = as.factor(Data.Month)), colour = NA) +
   viridis::scale_fill_viridis(option="magma", discrete=TRUE, name = "Month") + theme_void()
 
-ggsave(here("results/figures", "data_month.png"), width= 1280, units = "px")
+ggsave(here("results/figures", "data_month.png"), width= 1280, height = 1062, units = "px")
